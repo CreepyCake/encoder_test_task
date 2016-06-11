@@ -1,0 +1,32 @@
+{
+  "length": "25",
+  "fields": [
+    { "R0": "5" },
+    { "R1": "5" },
+    { "R2": "5" },
+    { "imm": ">=8" },
+    { "disp": ">=12" },
+    { "code": ">=3" }
+  ],
+  "instructions":
+  [
+    {
+      "insns": ["add", "sub", "mul", "div", "and", "or", "xor", "lsl", "lsr", "asr", "cmp", "call"],
+      "operands": ["R0", "R1", "R2"],
+      "format": "alu_instructions",
+      "comment": "3-operand arithmetic and logic instructions, function call"
+    },
+    {
+      "insns": ["load.b", "store.b", "load.d", "store.d", "load.w", "store.w", "branch", "jump", "sip", "move"],
+      "operands": ["R0", "R1", "imm"],
+      "format": "memory_access",
+      "comment": "Instructions for reading and writing memory, short branches"
+    },
+    {
+      "insns": ["branch.cond"],
+      "operands": ["R0", "code", "disp"],
+      "format": "branch",
+      "comment": "Branch instruction"
+    }
+  ]
+}
